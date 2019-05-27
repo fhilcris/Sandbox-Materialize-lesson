@@ -131,11 +131,30 @@
     <form>
       <!-- SWITCH -->
       <div>
+          <div class="switch">
+              <label>Diabled
+                <input type="checkbox" checked>
+                <span class="lever"></span>
+              </label>
+         
+      
+            </div>
 
-      </div>
+      <br>
+      <br>
 
       <!-- DISABLED SWITCH -->
       <div>
+
+          <div class="switch">
+              <label>Diabled
+                <input type="checkbox">
+                <span class="lever"></span>
+                Enable
+              </label>
+         
+      
+            </div>
 
       </div>
 
@@ -143,42 +162,42 @@
       <br>
 
       <!-- FILE INPUT -->
-      <div>
-        <div>
+      <div class="file-field input-field">
+        <div class="btn">
           <span>Upload File</span>
           <input type="file">
         </div>
-        <div>
-          <input type="text">
+        <div class="file-path-wrapper">
+          <input type="text" class="file-path">
         </div>
       </div>
 
       <!-- RANGE SLIDER -->
-      <p>
-        <input type="range">
+      <p class="range-field">
+        <input type="range" min="0" max="100" >
       </p>
 
       <!-- DATE PICKER -->
-      <div>
-        <input type="text" id="date">
+      <div class="input-field">
+        <input type="text" class="datepicker" id="date">
         <label for="date">Choose a Date</label>
       </div>
 
       <!-- TIME PICKER -->
-      <div>
-        <input type="text" id="time">
+      <div class="input-field">
+        <input type="text" class="timepicker" id="time">
         <label for="time">Choose a Time</label>
       </div>
 
       <!-- CHARACTER COUNTER -->
-      <div>
-        <input id="post" type="text">
+      <div class="input-field">
+        <input id="post" type="text" data-length="20">
         <label for="post">Post</label>
       </div>
 
       <!-- AUTOCOMPLETE -->
       <div>
-        <input type="text" id="fruit">
+        <input type="text" id="fruit" class="autocomplete">
         <label for="fruit">Type a Fruit</label>
       </div>
 
@@ -214,8 +233,34 @@
 
       // JAVASCRIPT START HERE //
 
+      $('.datepicker').pickadate({
+        selectMonths: true,
+        selectYears: 15,
+        closeOnSelect: true
+      });
 
+       $('.timepicker').pickatime({
+        default:'now',
+        twelvehour: true,
+        donetext: 'ok',
+        canceltext: 'cancel',
+        autoclose: true
+      });
 
+      // init autocomplete
+      $('.autocomplete').autocomplete({
+        data: {
+          "Apple": null,
+          "Orange": null,
+          "Banana": null,
+          "Grapes": null,
+          "Wearbro": null,
+          "Straberry": null,
+          "Pineapple": null,
+        },
+        limit: 20,
+        minlength: 2
+      });
 
     });
   </script>
